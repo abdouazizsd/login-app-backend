@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: login-app-backend
+  jpa:
+    # Provide database platform that is being used
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      # New database is created when app starts and destroyed when app stops
+      ddl-auto: create-drop
+    # Show sql when spring data jpa performs query
+    show-sql: true
+    properties:
+      hibernate:
+        # Format queries
+        format_sql: true
+  datasource:
+    # URL connection to database (spring-security is database name)
+    url: jdbc:mysql://localhost:3306/db_spring-security?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    # H2 SQL driver dependency
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password:
+  security:
+    jwt:
+      token:
+        secret-key: 413F4428472B4B6250655368566D5970337336763979244226452948404D6351
+server:
+  port: 9090
